@@ -23,9 +23,9 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', "AdMobKey", AdMobKey
-        it.buildConfigField 'String', "AdMobBannerUnitId", AdMobBannerUnitId
-        it.buildConfigField 'String', "AdMobInterstitialUnitId", AdMobInterstitialUnitId
+        it.buildConfigField 'String', "AdMobKey", "\"ca-app-pub-3940256099942544~3347511713\""
+        it.buildConfigField 'String', "AdMobBannerUnitId", "\"ca-app-pub-3940256099942544/6300978111\""
+        it.buildConfigField 'String', "AdMobInterstitialUnitId", "\"ca-app-pub-3940256099942544/1033173712\""
     }
 
     flavorDimensions 'application'
