@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.dex.letsjoke.javajokeslib.model.Joke;
 import com.dex.letsjoke.jokesdisplaylibrary.databinding.ActivityDisplayJokeBinding;
@@ -17,10 +18,16 @@ public class DisplayJokeActivity extends AppCompatActivity {
 
     private ActivityDisplayJokeBinding dataBinding;
 
+
     public static void start(Context context, Joke joke) {
-        Intent displayJokeIntent = new Intent(context, DisplayJokeActivity.class);
-        displayJokeIntent.putExtra(KEY_JOKE, joke.toJson());
-        context.startActivity(displayJokeIntent);
+        try {
+            Intent displayJokeIntent = new Intent(context, DisplayJokeActivity.class);
+            displayJokeIntent.putExtra(KEY_JOKE, joke.toJson());
+            context.startActivity(displayJokeIntent);
+        } catch (NullPointerException e) {
+            Toast.makeText(context, "It seems like server is offline!!!", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     @Override
